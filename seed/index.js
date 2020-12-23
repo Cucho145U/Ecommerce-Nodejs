@@ -11,7 +11,7 @@ mongoose.connect(mongoConfig, { useNewUrlParser: true, useCreateIndex: true, });
 var categories =
   [
     new Category({
-      categoryName: 'Basics'
+      categoryName: 'Basicos'
     }),
     new Category({
       categoryName: 'Blazer'
