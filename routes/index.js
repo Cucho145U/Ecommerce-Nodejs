@@ -26,6 +26,41 @@ router.get('/products', function (req, res, next) {
   })
 });
 
+//POST /products
+router.post('/ingresoproducts', function (req, res, next) {
+
+  const { imagePath, title, description, price, color, size, quantity, department,category } = req.body
+  req.checkBody('imagePath', 'imagePath is required').notEmpty();
+  req.checkBody('title', 'title is required').notEmpty();
+  req.checkBody('description', 'description is required').notEmpty();
+  req.checkBody('price', 'price is required').notEmpty();
+  req.checkBody('color', 'coloris required').notEmpty();
+  req.checkBody('size', 'size is required').notEmpty();
+  req.checkBody('quantity', 'quantity is required').notEmpty();
+  req.checkBody('department', 'department is required').notEmpty();
+  req.checkBody('category', 'category is required').notEmpty();
+  
+  const date = 123456789;
+
+  var newProduct = new Product({
+      imagePath: imagePath,
+      title: title,
+      description: description,
+      department: department,
+      category: category,
+      price: price,
+      color: color,
+      size: size, 
+      quantity: quantity,
+      date: date,
+    });
+
+  Product.createProduct(newProduct, function (err, user) {
+    if (err) return next(err);
+    res.json({ message: 'user created' })
+  });
+});
+
 //GET /products/:id
 router.get('/products/:id', function (req, res, next) {
   let productId = req.params.id;
