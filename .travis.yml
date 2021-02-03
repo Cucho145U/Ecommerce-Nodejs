@@ -7,12 +7,10 @@ install:
   - npm ci
   
 script:
-  - npm test
-  - npm run build
+  - CI='' npm run build
  
 deploy:
-  provider: pages
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: e-commerce-uwunsaac-backend
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  on:
-    branch: master
