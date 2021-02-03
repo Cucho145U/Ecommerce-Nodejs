@@ -35,6 +35,12 @@ var productSchema = mongoose.Schema({
 
 var Product = module.exports = mongoose.model('Product', productSchema);
 
+/////////////////////////////////
+module.exports.createProduct = function (newProduct, callback){
+  newProduct.save(callback);
+}
+
+
 module.exports.getAllProducts = function (query, sort, callback) {
   Product.find(query, null, sort, callback)
 }
