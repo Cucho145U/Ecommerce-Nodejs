@@ -14,9 +14,6 @@ var variantSchema  = mongoose.Schema({
     size: {
         type: String
     },
-    quantity: {
-        type: Number
-    },
     title: {
         type: String
     },
