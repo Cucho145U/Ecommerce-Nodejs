@@ -197,6 +197,7 @@ router.get('/filter', function (req, res, next) {
 //GET /checkout
 router.get('/checkout/:cartId', ensureAuthenticated, function (req, res, next) {
   const cartId = req.params.cartId
+  //aea
   //const frontURL = 'https://zack-ecommerce-reactjs.herokuapp.com'
   //const frontURL = 'http://localhost:3000'
   const frontURL="https://ecommerce-react-unsaac1.herokuapp.com/" ;
