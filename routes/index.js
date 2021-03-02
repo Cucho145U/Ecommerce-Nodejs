@@ -29,14 +29,13 @@ router.get('/products', function (req, res, next) {
 //POST /products
 router.post('/ingresoproducts', function (req, res, next) {
 
-  const { imagePath, title, description, price, color, size, quantity, department,category } = req.body
+  const { imagePath, title, description, price, color, size, department,category } = req.body
   req.checkBody('imagePath', 'imagePath is required').notEmpty();
   req.checkBody('title', 'title is required').notEmpty();
   req.checkBody('description', 'description is required').notEmpty();
   req.checkBody('price', 'price is required').notEmpty();
   req.checkBody('color', 'coloris required').notEmpty();
   req.checkBody('size', 'size is required').notEmpty();
-  req.checkBody('quantity', 'quantity is required').notEmpty();
   req.checkBody('department', 'department is required').notEmpty();
   req.checkBody('category', 'category is required').notEmpty();
   
@@ -51,7 +50,6 @@ router.post('/ingresoproducts', function (req, res, next) {
       price: price,
       color: color,
       size: size, 
-      quantity: quantity,
       date: date,
     });
 
@@ -199,6 +197,7 @@ router.get('/filter', function (req, res, next) {
 //GET /checkout
 router.get('/checkout/:cartId', ensureAuthenticated, function (req, res, next) {
   const cartId = req.params.cartId
+  //aea
   //const frontURL = 'https://zack-ecommerce-reactjs.herokuapp.com'
   //const frontURL = 'http://localhost:3000'
   const frontURL="https://ecommerce-react-unsaac1.herokuapp.com/" ;
