@@ -41,7 +41,7 @@ for (let i = 0; i < categories.length; i++) {
   });
 }
 
-var departments =
+/*var departments =
   [
     new Department({
       departmentName: 'Mujeres',
@@ -64,7 +64,7 @@ for (let i = 0; i < departments.length; i++) {
       exit();
     }
   });
-}
+}*/
 
 var products =
   [
@@ -76,8 +76,6 @@ var products =
       price: 35.95,
       color: 'Gray',
       size: 'XS,S,M',
-      quantity: 10,
-      department: 'Mujeres',
       category: 'Basicos',
       date: 1581397200000
     }),
@@ -89,8 +87,6 @@ var products =
       price: 29.99,
       color: 'Black',
       size: 'XS,S,XL',
-      quantity: 15,
-      department: 'Mujeres',
       category: 'Basicos',
       date: 1597885814264
     }),
@@ -102,8 +98,6 @@ var products =
       price: 25.99,
       color: 'White',
       size: 'XS',
-      quantity: 90,
-      department: 'Mujeres',
       category: 'Basicos',
       date: 1581397200000
     }),
@@ -115,8 +109,6 @@ var products =
       price: 79.99,
       color: 'Black',
       size: 'S,M,L',
-      quantity: 4,
-      department: 'Mujeres',
       category: 'Chaqueta',
       date: 1581397200000
     }),
@@ -128,8 +120,6 @@ var products =
       price: 79.99,
       color: 'Orange',
       size: 'M,L',
-      quantity: 5,
-      department: 'Varones',
       category: 'Prendas de punto',
       date: 1597885814264
     }),
@@ -141,8 +131,6 @@ var products =
       price: 79.99,
       color: 'Dark Blue',
       size: 'M,L',
-      quantity: 80,
-      department: 'Varones',
       category: 'Jeans',
       date: 1597885814264
     }),
@@ -154,8 +142,6 @@ var products =
       price: 45.99,
       color: 'Light Blue',
       size: 'XS,S,M',
-      quantity: 8,
-      department: 'Varones',
       category: 'Jeans',
       date: 1581397200000
     }),
@@ -167,8 +153,6 @@ var products =
       price: 99.99,
       color: 'Brown',
       size: 'XS,M,XL',
-      quantity: 12,
-      department: 'Varones',
       category: 'Campera',
       date: 1581397200000
     }),
@@ -180,8 +164,6 @@ var products =
       price: 16.90,
       color: 'OYSTER WHITE',
       size: 'XS,M',
-      quantity: 23,
-      department: 'Niños',
       category: 'Niña',
       date: 1597962874736
     }),
@@ -193,8 +175,6 @@ var products =
       price: 45.90,
       color: 'BLACK ',
       size: 'XS',
-      quantity: 23,
-      department: 'Niños',
       category: 'Niño',
       date: 1597962874736
     }),
@@ -208,72 +188,12 @@ for (let i = 0; i < products.length; i++) {
   });
 }
 
-var variants =
-  [
-    new Variant({
-      productID: '5bedf31cc14d7822b39d9d43',
-      imagePath: 'https://static.zara.net/photos///2018/I/0/1/p/7568/644/710/2/w/1920/7568644710_1_1_1.jpg?ts=1541151891840',
-      color: 'Beige',
-      size: 'S,L',
-      quantity: 5,
-    }),
-    new Variant({
-      productID: '5bedf3b9c14d7822b39d9d45',
-      imagePath: 'https://static.zara.net/photos///2018/I/0/1/p/5644/641/735/2/w/1920/5644641735_2_5_1.jpg?ts=1540395590656',
-      color: 'Copper',
-      size: 'S,L,XL',
-      quantity: 12,
-    }),
-    new Variant({
-      productID: '5bedf448c14d7822b39d9d47',
-      imagePath: 'https://static.zara.net/photos///2018/I/0/1/p/7568/469/605/2/w/1920/7568469605_2_1_1.jpg?ts=1540394095062',
-      color: 'Maroon',
-      size: 'XS,M,L',
-      quantity: 4,
-    }),
-    new Variant({
-      productID: '5bedf448c14d7822b39d9d47',
-      imagePath: 'https://static.zara.net/photos///2018/I/0/1/p/7568/469/822/2/w/1920/7568469822_2_1_1.jpg?ts=1540394193241',
-      color: 'Charcool',
-      size: 'XS,L,XL',
-      quantity: 5,
-    }),
-    new Variant({
-      productID: '5bedf5eec14d7822b39d9d4e',
-      imagePath: 'https://static.zara.net/photos///2018/I/0/2/p/1775/300/806/2/w/1920/1775300806_2_1_1.jpg?ts=1539690394197',
-      color: 'Stone',
-      size: 'S,XL',
-      quantity: 35,
-    }),
-    new Variant({
-      productID: '5bedf720c14d7822b39d9d52',
-      imagePath: 'https://static.zara.net/photos///2018/I/0/2/p/5575/380/407/2/c-269-0-2048-3072/w/1920/5575380407_1_1_1.jpg?ts=1527602989905',
-      color: 'Dark Blue',
-      size: 'M,XL',
-      quantity: 5,
-    }),
-    new Variant({
-      productID: '5f3efb0d034bec1b28de7238',
-      imagePath: 'https://static.zara.net/photos///2020/I/0/3/p/0257/700/800/102/w/560/0257700800_2_10_1.jpg?ts=1596028794110',
-      color: 'BLACK',
-      size: 'M,XL',
-      quantity: 5,
-    })
 
-  ];
-
-for (let i = 0; i < variants.length; i++) {
-  variants[i].save(function (e, r) {
-    if (i === variants.length - 1) {
-      exit();
-    }
-  });
-}
 
 var newUser = new User({
-  username: 'admin@admin.com',
-  password: 'admin',
-  fullname: 'Cuneyt Celebican',
+  username: '171914@unsaac.edu.pe',
+  password: 'alex2020',
+  fullname: 'Alex',
   admin: true
 });
 User.createUser(newUser, function (err, user) {
