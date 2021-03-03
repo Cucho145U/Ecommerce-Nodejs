@@ -10,7 +10,9 @@ const Cart = require('../models/Cart');
 const CartClass = require('../modules/Cart')
 const paypal_config = require('../configs/paypal-config')
 const paypal = require('paypal-rest-sdk')
-
+var mongoose = require('mongoose');
+const mongoConfig = require('../configs/mongo-config')
+mongoose.connect(mongoConfig, { useNewUrlParser: true, useCreateIndex: true, });
 
 //GET /products
 router.get('/products', function (req, res, next) {
@@ -29,29 +31,45 @@ router.get('/products', function (req, res, next) {
 //POST /products
 router.post('/ingresoproducts', function (req, res, next) {
 
-  const { imagePath, title, description, price, color, size, department,category } = req.body
+  const { imagePath, title, description, price, color, size, array_tags,Pregunta1, Pregunta2 } = req.body
   req.checkBody('imagePath', 'imagePath is required').notEmpty();
   req.checkBody('title', 'title is required').notEmpty();
   req.checkBody('description', 'description is required').notEmpty();
   req.checkBody('price', 'price is required').notEmpty();
-  req.checkBody('color', 'coloris required').notEmpty();
+  req.checkBody('color', 'color is required').notEmpty();
   req.checkBody('size', 'size is required').notEmpty();
-  req.checkBody('department', 'department is required').notEmpty();
-  req.checkBody('category', 'category is required').notEmpty();
+  req.checkBody('categoria', 'category is required').notEmpty();
+  req.checkBody('pregunta1', 'pregunta1 is required').notEmpty();
+  req.checkBody('pregunta2', 'pregunta2 is required').notEmpty();
   
-  const date = 123456789;
+  const date = 5;
 
   var newProduct = new Product({
       imagePath: imagePath,
       title: title,
       description: description,
-      department: department,
-      category: category,
+      category: array_tags,
       price: price,
       color: color,
       size: size, 
       date: date,
+      pregunta1: Pregunta1,
+      pregunta2: Pregunta2,
+  });
+  
+  /*for (let i = 0; i < array_tags.length; i++) {
+
+    var newCatego = new category({
+      categoryName: array_tags[i]
     });
+
+    newCatego.save(function (e, r) {
+      if (i === categories.length - 1) {
+        exit();
+      }
+    });
+  }*/
+
 
   Product.createProduct(newProduct, function (err, user) {
     if (err) return next(err);

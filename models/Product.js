@@ -10,11 +10,8 @@ var productSchema = mongoose.Schema({
   description: {
     type: String
   },
-  department: {
-    type: String
-  },
   category: {
-    type: String
+    type: Array
   },
   price: {
     type: Number
@@ -27,6 +24,12 @@ var productSchema = mongoose.Schema({
   },
   date: {
     type: Number
+  },
+  pregunta1: {
+    type: Array
+  },
+  pregunta2: {
+    type: Array
   }
 });
 
