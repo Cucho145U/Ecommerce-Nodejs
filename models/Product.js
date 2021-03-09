@@ -22,6 +22,9 @@ var productSchema = mongoose.Schema({
   size: {
     type: String
   },
+  cellphone: {
+    type: String
+  },
   date: {
     type: Number
   },

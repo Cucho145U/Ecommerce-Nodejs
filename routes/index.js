@@ -31,7 +31,7 @@ router.get('/products', function (req, res, next) {
 //POST /products
 router.post('/ingresoproducts', function (req, res, next) {
 
-  const { imagePath, title, description, price, color, size, array_tags,Pregunta1, Pregunta2 } = req.body
+  const { imagePath, title, description, price, color, size, array_tags,Pregunta1, Pregunta2, cellphone } = req.body
   req.checkBody('imagePath', 'imagePath is required').notEmpty();
   req.checkBody('title', 'title is required').notEmpty();
   req.checkBody('description', 'description is required').notEmpty();
@@ -51,7 +51,8 @@ router.post('/ingresoproducts', function (req, res, next) {
       category: array_tags,
       price: price,
       color: color,
-      size: size, 
+      size: size,
+      cellphone:cellphone,
       date: date,
       pregunta1: Pregunta1,
       pregunta2: Pregunta2,
