@@ -1,20 +1,7 @@
-# Full stack ecommerce online store application
+# Aplicación fullstack de un catálogo para venta de productos online
 
 
 
-#### front-end codes [click here](https://github.com/levelopers/Ecommerce-Reactjs)
+#### Código de front-end [click here](https://github.com/UwUnsaac/Ecommerce-Reactjs)
 
-#### api documentation:  [swaggerHub](https://app.swaggerhub.com/apis-docs/levelopers2/Ecommerce/1.0.0)
-
-#### populate data: run  `node ./seed` (make sure you fill up `mongo-config` file with mongodb url)
-
-
-
-<details>
- <summary>data model</summary>
- <p>
-   
-![react-native-store relational model diagram](https://user-images.githubusercontent.com/38830527/92665263-1c4cb880-f2d4-11ea-85a4-201c41517123.png)
-   
-</p>
-</details>
+#### Llenado de datos base: run  `node ./seed` (Asegúrese de llenar de manera correcta el archivo `mongo-config` con el enlace correspondiente a su base de datos)
