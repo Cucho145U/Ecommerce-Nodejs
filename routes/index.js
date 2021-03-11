@@ -45,11 +45,14 @@ router.post('/ingresoproducts', function (req, res, next) {
   const date = 5;
 
   for (let i = 0; i < array_tags.length; i++){
-    array_tags[i]=array_tags[i].toLocaleLowerCase()
+    array_tags[i]=array_tags[i].toLocaleLowerCase();
+    if( i === (array_tags.length-1) ){
+      if (array_tags.indexOf(color.toLocaleLowerCase())===-1){
+        array_tags.push(color.toLocaleLowerCase());
+      }
+    }
   }
-  if (array_tags.indexOf(color.toLocaleLowerCase())===-1){
-    array_tags.push(color.toLocaleLowerCase());
-  }
+  
   array_tags.push(color.toLocaleLowerCase());
   var newProduct = new Product({
       imagePath: imagePath,
