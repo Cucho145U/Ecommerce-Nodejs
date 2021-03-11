@@ -46,7 +46,7 @@ router.post('/ingresoproducts', function (req, res, next) {
 
   for (let i = 0; i < array_tags.length; i++){
     array_tags[i]=array_tags[i].toLocaleLowerCase();
-    
+  }
   if (array_tags.indexOf(color.toLocaleLowerCase())===-1){
     array_tags.push(color.toLocaleLowerCase());
   }
