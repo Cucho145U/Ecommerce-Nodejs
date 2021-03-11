@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "stable"
+cache: npm
+
+install:
+  - npm ci
+  
+script:
+  - CI='' npm run
+ 
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: e-commerce-uwunsaac-backend
+  skip-cleanup: true

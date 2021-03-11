@@ -10,11 +10,8 @@ var productSchema = mongoose.Schema({
   description: {
     type: String
   },
-  department: {
-    type: String
-  },
   category: {
-    type: String
+    type: Array
   },
   price: {
     type: Number
@@ -25,15 +22,27 @@ var productSchema = mongoose.Schema({
   size: {
     type: String
   },
-  quantity: {
-    type: Number
+  cellphone: {
+    type: String
   },
   date: {
     type: Number
+  },
+  pregunta1: {
+    type: Array
+  },
+  pregunta2: {
+    type: Array
   }
 });
 
 var Product = module.exports = mongoose.model('Product', productSchema);
+
+/////////////////////////////////
+module.exports.createProduct = function (newProduct, callback){
+  newProduct.save(callback);
+}
+
 
 module.exports.getAllProducts = function (query, sort, callback) {
   Product.find(query, null, sort, callback)
