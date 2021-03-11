@@ -78,13 +78,18 @@ router.post('/ingresoproducts', function (req, res, next) {
   req.checkBody('pregunta1', 'pregunta1 is required').notEmpty();
   req.checkBody('pregunta2', 'pregunta2 is required').notEmpty();
   var date = 5;
+
+  for (var i = 0; i < array_tags.length; i++) {
+    array_tags[i] = array_tags[i].toLocaleLowerCase();
+  }
+
   var newProduct = new Product({
     imagePath: imagePath,
-    title: title,
+    title: title.toLocaleLowerCase(),
     description: description,
     category: array_tags,
     price: price,
-    color: color,
+    color: color.toLocaleLowerCase(),
     size: size,
     cellphone: cellphone,
     date: date,
