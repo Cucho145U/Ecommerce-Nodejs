@@ -44,13 +44,16 @@ router.post('/ingresoproducts', function (req, res, next) {
   
   const date = 5;
 
+  for (let i = 0; i < array_tags.length; i++){
+    array_tags[i]=array_tags[i].toLocaleLowerCase()
+  }
   var newProduct = new Product({
       imagePath: imagePath,
-      title: title,
+      title: title.toLocaleLowerCase(),
       description: description,
       category: array_tags,
       price: price,
-      color: color,
+      color: color.toLocaleLowerCase(),
       size: size,
       cellphone:cellphone,
       date: date,
