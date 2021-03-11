@@ -13,7 +13,7 @@ class Cart {
     if (!storedItem) {
       storedItem = this.items[id] = { item: item, qty: 0, price: 0 };
     }
-    storedItem.qty++;
+    storedItem.qty=1;
     storedItem.price = parseFloat((storedItem.item.price * storedItem.qty).toFixed(2));
     this.items[id]=storedItem
     this.totalQty++;
@@ -46,7 +46,7 @@ class Cart {
   }
 
   increaseQty(id) {
-    this.items[id].qty++;
+    this.items[id].qty=1;
     this.items[id].price += this.items[id].item.price;
     this.items[id].price = parseFloat(this.items[id].price.toFixed(2))
     this.totalQty++;

@@ -14,6 +14,12 @@ var categorySchema  = mongoose.Schema({
 
 var Category = module.exports = mongoose.model('Categories', categorySchema);
 
+/////////////////////////////////
+/*module.exports.createCategory = function (newCategory, callback){
+    newCategory.save(callback);
+  }*/
+
+
 // These are functions to get data from the database. You can even reach the information
 // without calling this functions but I just want to show you how you can add some functions
 // to your model file to get specific data.

@@ -10,7 +10,9 @@ const Cart = require('../models/Cart');
 const CartClass = require('../modules/Cart')
 const paypal_config = require('../configs/paypal-config')
 const paypal = require('paypal-rest-sdk')
-
+var mongoose = require('mongoose');
+const mongoConfig = require('../configs/mongo-config')
+mongoose.connect(mongoConfig, { useNewUrlParser: true, useCreateIndex: true, });
 
 //GET /products
 router.get('/products', function (req, res, next) {
@@ -24,6 +26,63 @@ router.get('/products', function (req, res, next) {
     }
     res.json({ products: products })
   })
+});
+
+//POST /products
+router.post('/ingresoproducts', function (req, res, next) {
+
+  const { imagePath, title, description, price, color, size, array_tags,Pregunta1, Pregunta2, cellphone } = req.body
+  req.checkBody('imagePath', 'imagePath is required').notEmpty();
+  req.checkBody('title', 'title is required').notEmpty();
+  req.checkBody('description', 'description is required').notEmpty();
+  req.checkBody('price', 'price is required').notEmpty();
+  req.checkBody('color', 'color is required').notEmpty();
+  req.checkBody('size', 'size is required').notEmpty();
+  req.checkBody('categoria', 'category is required').notEmpty();
+  req.checkBody('pregunta1', 'pregunta1 is required').notEmpty();
+  req.checkBody('pregunta2', 'pregunta2 is required').notEmpty();
+  
+  const date = 5;
+
+  for (let i = 0; i < array_tags.length; i++){
+    array_tags[i]=array_tags[i].toLocaleLowerCase();
+    
+  if (array_tags.indexOf(color.toLocaleLowerCase())===-1){
+    array_tags.push(color.toLocaleLowerCase());
+  }
+
+  var newProduct = new Product({
+      imagePath: imagePath,
+      title: title.toLocaleLowerCase(),
+      description: description,
+      category: array_tags,
+      price: price,
+      color: color.toLocaleLowerCase(),
+      size: size,
+      cellphone:cellphone,
+      date: date,
+      pregunta1: Pregunta1,
+      pregunta2: Pregunta2,
+  });
+  
+  /*for (let i = 0; i < array_tags.length; i++) {
+
+    var newCatego = new category({
+      categoryName: array_tags[i]
+    });
+
+    newCatego.save(function (e, r) {
+      if (i === categories.length - 1) {
+        exit();
+      }
+    });
+  }*/
+
+
+  Product.createProduct(newProduct, function (err, user) {
+    if (err) return next(err);
+    res.json({ message: 'user created' })
+  });
 });
 
 //GET /products/:id
@@ -164,9 +223,9 @@ router.get('/filter', function (req, res, next) {
 //GET /checkout
 router.get('/checkout/:cartId', ensureAuthenticated, function (req, res, next) {
   const cartId = req.params.cartId
-  //const frontURL = 'https://zack-ecommerce-reactjs.herokuapp.com'
+  //d
   //const frontURL = 'http://localhost:3000'
-  const frontURL="https://ecommerce-react-unsaac1.herokuapp.com/" ;
+  const frontURL="https://e-commerce-uwunsaac.herokuapp.com/" ;
   Cart.getCartById(cartId, function (err, c) {
     if (err) return next(err)
     if (!c) {
